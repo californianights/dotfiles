@@ -1,0 +1,26 @@
+# Neovim/Vim temporary files
+*.swp
+*.swo
+*.un~
+.netrwhist
+*~
+
+# Packer.nvim compiled plugins (if using packer)
+/plugin/packer_compiled.lua
+
+# Lazy.nvim lockfile (optional, see note below)
+lazy-lock.json
+
+# Mason.nvim installed binaries (important to ignore!)
+/mason/
+
+# LSP, Treesitter and other cached files
+/.local/
+/.cache/
+/undo/
+
+# Other
+.DS_Store
+.nvim.lua
+.netrwhist
+*.log
