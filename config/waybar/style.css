@@ -1,94 +1,222 @@
 * {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 12px;
-    font-weight: 500;
-    min-height: 0;
+    font-size: 13px;
+    font-weight: 600;
 }
+
+/* =========================
+   WAYBAR
+   ========================= */
 
 window#waybar {
     background: transparent;
-    color: #c0caf5;
+    color: #ffffff;
 }
 
-/* ────────────────
-   Workspaces
-   ──────────────── */
+/* =========================
+   ISLANDS
+   ========================= */
+
+#workspaces,
+#clock,
+#battery,
+#bluetooth,
+#pulseaudio,
+#network,
+#language,
+#custom-weather,
+#custom-power {
+    background: #1a1b26;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 16px;
+
+    margin: 5px 3px;
+    padding: 0 12px;
+
+    min-width: 18px;
+}
+
+#custom-recording {
+    color: #ff3b3b;
+    font-weight: bold;
+}
+
+#custom-weather {
+    padding: 0 8px;
+}
+
+#custom-recording.recording {
+    animation: recording-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes recording-pulse {
+    0% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.35;
+    }
+}
+
+#language {
+    color: #ffffff;
+    padding: 0 13px;
+}
+/* =========================
+   workspaces
+   ========================= */
 
 #workspaces {
-    margin: 4px 0 4px 7px;
-    padding: 0 3px;
-
-    background: #1a1b26;
-    border-radius: 8px;
+    padding: 0 5px;
 }
 
 #workspaces button {
-    padding: 0 6px;
-    margin: 2px 1px;
-
-    background: transparent;
     color: #565f89;
+    background: transparent;
 
     border: none;
-    border-radius: 6px;
+    border-radius: 12px;
+
+    padding: 0 8px;
+    margin: 3px 1px;
 }
 
 #workspaces button.active {
-    color: #1a1b26;
-    background: #c0caf5;
+    color: #ffffff;
+    background: #24283b;
 }
 
 #workspaces button:hover {
     color: #c0caf5;
-    background: #24283b;
+    background: #2f334d;
 }
 
-/* ────────────────
-   Clock
-   ──────────────── */
+/* =========================
+   CLOCK
+   ========================= */
 
 #clock {
-    margin: 4px;
-    padding: 0 12px;
-
-    background: #1a1b26;
-    color: #c0caf5;
-
-    border-radius: 8px;
+    color: #ffffff;
+    padding: 0 18px;
 }
 
-/* ────────────────
-   Right side
-   ──────────────── */
-
-#battery,
-#bluetooth,
-#network,
-#custom-power {
-    margin: 4px 0;
-    padding: 0 8px;
-
-    background: #1a1b26;
-    color: #c0caf5;
-}
+/* =========================
+   BATTERY
+   ========================= */
 
 #battery {
-    border-radius: 8px 0 0 8px;
+    color: #ffffff;
 }
+
+#battery.warning {
+    color: #c0caf5;
+}
+
+#battery.critical {
+    color: #9aa3bf;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #ffffff;
+}
+
+/* =========================
+   BLUETOOTH
+   ========================= */
+
+/* Подключено */
+#bluetooth.connected {
+    color: #ffffff;
+}
+
+/* Включен, но устройств нет */
+#bluetooth.on {
+    color: #a9b1c6;
+}
+
+/* Выключен */
+#bluetooth.off,
+#bluetooth.disabled {
+    color: #565f89;
+}
+
+/* =========================
+   AUDIO
+   ========================= */
+
+/* Обычный звук */
+#pulseaudio {
+    color: #ffffff;
+}
+
+/* Muted */
+#pulseaudio.muted {
+    color: #565f89;
+}
+
+/* =========================
+   NETWORK
+   ========================= */
+
+/* Wi-Fi подключен */
+#network.wifi {
+    color: #ffffff;
+}
+
+/* Ethernet */
+#network.ethernet {
+    color: #ffffff;
+}
+
+/* Нет подключения */
+#network.disconnected {
+    color: #565f89;
+}
+
+/* =========================
+   POWER
+   ========================= */
 
 #custom-power {
-    margin-right: 7px;
-    border-radius: 0 8px 8px 0;
+    color: #ffffff;
+    padding: 0 13px;
+    font-size: 16px
 }
 
-/* ────────────────
-   Hover
-   ──────────────── */
+/* =========================
+   HOVER
+   ========================= */
 
+#clock:hover,
 #battery:hover,
 #bluetooth:hover,
+#pulseaudio:hover,
 #network:hover,
-#custom-power:hover,
-#clock:hover {
+#custom-power:hover {
     background: #24283b;
+}
+
+/* =========================
+   TOOLTIPS
+   ========================= */
+
+tooltip {
+    background: #1a1b26;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: #ffffff;
+    padding: 4px;
 }

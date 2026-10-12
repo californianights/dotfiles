@@ -1,0 +1,36 @@
+* {
+    font: "JetBrainsMono Nerd Font 12";
+    text-color: #c0caf5;
+}
+
+window {
+    width: 320px;
+    background-color: #1a1b26;
+    border: 1px;
+    border-color: #414868;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+mainbox {
+    background-color: #1a1b26;
+    children: [inputbar];
+}
+
+inputbar {
+    background-color: #24283b;
+    border-radius: 6px;
+    padding: 7px 10px;
+    spacing: 8px;
+    children: [prompt, entry];
+}
+
+prompt {
+    background-color: transparent;
+    text-color: #7aa2f7;
+}
+
+entry {
+    background-color: transparent;
+    text-color: #c0caf5;
+}
