@@ -1,6 +1,6 @@
 [submodule "config/nvim"]
 	path = config/nvim
-	url = https://github.com/californianights/nvim_config
+	url = git@californianights_github:californianights/nvim
 [submodule "config/amane"]
 	path = config/amane
 	url = git@californianights_github:californianights/rust_amane.git

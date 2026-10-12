@@ -1,9 +1,5 @@
 return {
-	{
-		"numToStr/Comment.nvim",
-		event = "VeryLazy",
-		opts = {},
-	},
+	{ "nvim-mini/mini.comment", version = false },
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
@@ -37,10 +33,6 @@ return {
 		},
 	},
 	{
-		"famiu/bufdelete.nvim",
-		cmd = { "Bdelete", "Bwipeout" },
-	},
-	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
@@ -66,9 +58,7 @@ return {
 		end,
 	},
 	{
-		"Weyaaron/nvim-training",
-		cmd = "Training",
-		pin = true,
-		opts = {},
+		"famiu/bufdelete.nvim",
+		lazy = false,
 	},
 }

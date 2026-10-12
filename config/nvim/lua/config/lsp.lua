@@ -76,6 +76,16 @@ M.servers = {
 			},
 		},
 	},
+	rust_analyzer = {
+		settings = {
+			["rust-analyzer"] = {
+				cargo = { allFeatures = true },
+				checkOnSave = {
+					command = "clippy",
+				},
+			},
+		},
+	},
 	taplo = {},
 	dockerls = {},
 	bashls = {},
@@ -145,4 +155,3 @@ function M.setup()
 end
 
 return M
-

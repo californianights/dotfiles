@@ -17,8 +17,6 @@ return {
 		opts = {
 			ensure_installed = {
 				"bash-language-server",
-				"clangd",
-				"clang-format",
 				"dockerfile-language-server",
 				"gofumpt",
 				"goimports",
@@ -30,6 +28,8 @@ return {
 				"stylua",
 				"taplo",
 				"yaml-language-server",
+				"rust-analyzer",
+				"rustfmt",
 			},
 			auto_update = false,
 			debounce_hours = 24,
@@ -127,8 +127,7 @@ return {
 				lua = { "stylua" },
 				sh = { "shfmt" },
 				solidity = { "forge_fmt" },
-				c = { "clang_format" },
-				cpp = { "clang_format" },
+				rust = { "rustfmt" },
 			},
 		},
 	},

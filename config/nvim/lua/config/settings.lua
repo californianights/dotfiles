@@ -1,7 +1,7 @@
 local M = {
 	leader = " ",
 	localleader = "\\",
-	colorscheme = "tokyonight",
+	colorscheme = "weztheme",
 	theme_style = "night",
 	transparent = true,
 	explorer_width = 36,
