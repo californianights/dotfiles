@@ -5,6 +5,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+for env_file in "$HOME/.env/"*; do
+    [[ -f "$env_file" ]] || continue
+
+    env_name="$(basename "$env_file")"
+    export "$env_name=$(<"$env_file")"
+done
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -77,9 +84,10 @@ eval "$(~/.local/bin/mise activate zsh)"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions docker python z sudo colored-man-pages command-not-found extract golang universalarchive)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions docker python sudo colored-man-pages command-not-found extract golang universalarchive)
  
 source $ZSH/oh-my-zsh.sh
+eval "$(zoxide init zsh)"
 
 # User configuration
 
@@ -109,6 +117,12 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ls='lsd'
+alias ll='lsd -l'
+alias la='lsd -lA'
+alias lt='lsd --tree'
+alias cat='bat'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="$HOME/.cargo/bin:$PATH"
