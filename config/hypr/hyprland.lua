@@ -53,7 +53,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 
-	hl.exec_cmd("waybar")
+	hl.exec_cmd("sh -lc '/home/vadim/.cargo/bin/amane run > /tmp/amane.log 2>&1'")
 	hl.exec_cmd("hyprpaper")
 end)
 
@@ -259,6 +259,8 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 ---------------------
 ----Custom Keys------
 ---------------------
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("~/.cargo/bin/amane ipc call toggle-launcher"))
+
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("~/.dotfiles/config/hypr/scripts/screencast.sh screen"))
 hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd("~/.dotfiles/config/hypr/scripts/screencast.sh region"))
 
@@ -270,7 +272,8 @@ hl.bind(
 hl.bind("CTRL + PRINT", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("~/.config/waybar/scripts/wallpaper-menu.sh"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("zen-browser"))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("rofi -show drun -show-icons"))
+-- hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("rofi -show drun -show-icons"))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"))
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"))
 
@@ -288,7 +291,6 @@ hl.bind(
 )
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 -- hl.bind(mainMod .. " + |", hl.dsp.layout("togglesplit"))    -- dwindle only
 
@@ -310,10 +312,6 @@ end
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind("SHIFT + TAB", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
